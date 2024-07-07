@@ -1,5 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
+import Header from './componet/header/header';
+
+console.log(Header)
 
 function App() {
   return (
@@ -15,7 +18,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Aprender React
         </a>
       </header>
     </div>
