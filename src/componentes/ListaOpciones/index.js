@@ -4,7 +4,7 @@ import "./ListaOpciones.css"
 const ListaOpciones = (props) => {
 
     // Metodo map para recorrer arreglos 
-    const equipos = [
+    /*const equipos = [
         "Programacion",
         "Fornt End",
         "Data Science",
@@ -12,7 +12,7 @@ const ListaOpciones = (props) => {
         "UX y Diseño",
         "Movil",
         "Innovacion y Gestion"
-    ]
+    ]*/
 
     const manejarCambio = (e) => {
         console.log("cambio",e.target.value)
@@ -23,7 +23,7 @@ const ListaOpciones = (props) => {
         <label>Equipos</label>
         <select value={props.valor} onChange={manejarCambio}>
             <option value="" disabled defaultValue="" hidden >Seleciona equipo</option>
-            {equipos.map((equipo, index) => {
+            {props.equipos.map((equipo, index) => {
                 return <option key={index} value={equipo}>{equipo}</option>
             })}
         </select>
