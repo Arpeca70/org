@@ -1,9 +1,9 @@
-import "./Colaborador.css  "
+import "./Colaborador.css"
 
 const Colaborador = () => {
     return <div className="colaborador">
         <div className="encabezado">
-            <img src=">https://github.com/harlandlohora.png" alt="harlanlohora"/>
+            <img src="https://github.com/harlandlohora.png" alt="harlanlohora"/>
         </div>
         <div className="info">
             <h4>Harland Lohora</h4>
