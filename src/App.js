@@ -5,15 +5,23 @@ import Header from './componentes/Header/Header';
 import Formulario from './componentes/Formulario/Formulario';
 import MiOrg from './componentes/MiOrg';
 import Equipo from './componentes/equipo';
+import Footer from './componentes/Footer';
 
 function App() {
 
   const [mostrarFormulario, actualizarMostrar] = useState(false)
-  // Ternario --> condicion ? seMuestra : noSeMuestra
-  // condicion && seMuestra
+  const [colaboradores,actualizarColaboradores] = useState([])
+  
 
   const cambiarMostrar = () => {
     actualizarMostrar(!mostrarFormulario)
+  }
+
+  //Registrar Colaborador
+  const registrarColaborador = (colaborador)=>{
+    console.log("Nuevo Colaborador",colaborador)
+    //spread operator
+    actualizarColaboradores([...colaboradores,colaborador])
   }
 
   // Lista de equipos (arreglo de objetos)
@@ -60,21 +68,30 @@ function App() {
       <Header />
       {/*mostrarFormulario ? <Formulario /> : <div></div>*/}
       {/*mostrarFormulario ? <Formulario /> : <></>*/}
-      {mostrarFormulario && <Formulario equipos={equipos.map((equipo)=> equipo.titulo)}/>}
+      {
+        // Ternario --> condicion ? seMuestra : noSeMuestra
+        // condicion && seMuestra
+        mostrarFormulario && <Formulario
+            equipos={equipos.map((equipo)=> equipo.titulo)}
+            registrarColaborador={registrarColaborador}
+        />
+      }
       <MiOrg cambiarMostrar={cambiarMostrar}></MiOrg>
 
       {
         //variable (equipo) es un parametro en esta funcion arrow, puede llamarse como sea, no 
-        //estoy tryendo ningun valor anterior, este parametro me devuelve los 
+        //estoy trayendo ningun valor anterior, este parametro me devuelve los 
         //valores de mi arreglo por estar dentro de MAP
-
         //equipos.map((equipo) => <Equipo datos={equipo} key={equipo.titulo} />) las dos son validas,
-        //codigo mas limoio este pere dejare el anterior para entenderlo mejor
-        equipos.map((equipo) => {
-          return <Equipo datos={equipo} key={equipo.titulo} />
+        //codigo mas limpio este pero dejare el anterior para entenderlo mejor
+          equipos.map((equipo) => <Equipo 
+              datos={equipo} 
+              key={equipo.titulo} 
+              colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)}
+            />
+          )
         }
-        )}
-
+      <Footer></Footer>
     </div>
   );
 }
