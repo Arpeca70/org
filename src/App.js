@@ -19,8 +19,7 @@ function App() {
 
   //Registrar Colaborador
   const registrarColaborador = (colaborador)=>{
-    console.log("Nuevo Colaborador",colaborador)
-    //spread operator
+  //spread operator
     actualizarColaboradores([...colaboradores,colaborador])
   }
 
@@ -65,12 +64,12 @@ function App() {
 
   return (
     <div>
-      <Header />
+      <Header/>
       {/*mostrarFormulario ? <Formulario /> : <div></div>*/}
       {/*mostrarFormulario ? <Formulario /> : <></>*/}
+      {/*Ternario --> condicion ? seMuestra : noSeMuestra */} 
+      {/*condicion && seMuestra*/} 
       {
-        // Ternario --> condicion ? seMuestra : noSeMuestra
-        // condicion && seMuestra
         mostrarFormulario && <Formulario
             equipos={equipos.map((equipo)=> equipo.titulo)}
             registrarColaborador={registrarColaborador}
@@ -84,6 +83,8 @@ function App() {
         //valores de mi arreglo por estar dentro de MAP
         //equipos.map((equipo) => <Equipo datos={equipo} key={equipo.titulo} />) las dos son validas,
         //codigo mas limpio este pero dejare el anterior para entenderlo mejor
+      }
+      {
           equipos.map((equipo) => <Equipo 
               datos={equipo} 
               key={equipo.titulo} 
