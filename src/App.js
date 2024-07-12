@@ -10,7 +10,7 @@ import Footer from './componentes/Footer';
 function App() {
 
   const [mostrarFormulario, actualizarMostrar] = useState(false)
-  const [colaboradores,actualizarColaboradores] = useState([
+  const [colaboradores,actualizarColaboradores] = useState([{
     equipo: "Front End",
     foto: "https://github.com/harlandlohora.png",
     nombre: "Harland Lohora",
@@ -91,7 +91,7 @@ function App() {
   }
 
   // Lista de equipos (arreglo de objetos)
-  const equipos = [
+  /*const equipos = [
     {
       titulo: "Programacion",
       colorPrimario: "#57C278",
@@ -128,7 +128,7 @@ function App() {
       colorSecundario: "#FFEEDF"
     }
   ]
-
+*/
   return (
     <div>
       <Header/>
