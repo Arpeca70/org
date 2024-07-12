@@ -10,7 +10,7 @@ import Footer from './componentes/Footer';
 function App() {
 
   const [mostrarFormulario, actualizarMostrar] = useState(false)
-  const [colaboradores,actualizarColaboradores] = useState([{
+  const [colaboradores, actualizarColaboradores] = useState([{
     equipo: "Front End",
     foto: "https://github.com/harlandlohora.png",
     nombre: "Harland Lohora",
@@ -78,33 +78,45 @@ function App() {
       colorSecundario: "#FFEEDF"
     }
   ])
-  
+
 
   const cambiarMostrar = () => {
     actualizarMostrar(!mostrarFormulario)
   }
 
   //Registrar Colaborador
-  const registrarColaborador = (colaborador)=>{
-  //spread operator
-    actualizarColaboradores([...colaboradores,colaborador])
+  const registrarColaborador = (colaborador) => {
+    //spread operator, le agrega otro elemento al arreglo
+    actualizarColaboradores([...colaboradores, colaborador])
   }
-  
-  const eliminarColaborador = ()=>{
+
+  const eliminarColaborador = () => {
     console.log("Eliminar Colaborador")
+  }
+
+  const actualizaColor = (color, titulo) => {
+   // console.log("Actualizar: ", color, titulo)
+    const equiposActualizados=equipos.map((equipo)=>{
+      if(equipo.titulo === titulo){
+        equipo.colorPrimario = color 
+      }
+      
+      return equipo
+    }) 
+    actualizarEquipos(equiposActualizados)
   }
 
   return (
     <div>
-      <Header/>
+      <Header />
       {/*mostrarFormulario ? <Formulario /> : <div></div>*/}
       {/*mostrarFormulario ? <Formulario /> : <></>*/}
-      {/*Ternario --> condicion ? seMuestra : noSeMuestra */} 
-      {/*condicion && seMuestra*/} 
+      {/*Ternario --> condicion ? seMuestra : noSeMuestra */}
+      {/*condicion && seMuestra*/}
       {
         mostrarFormulario && <Formulario
-            equipos={equipos.map((equipo)=> equipo.titulo)}
-            registrarColaborador={registrarColaborador}
+          equipos={equipos.map((equipo) => equipo.titulo)}
+          registrarColaborador={registrarColaborador}
         />
       }
       <MiOrg cambiarMostrar={cambiarMostrar}></MiOrg>
@@ -117,14 +129,15 @@ function App() {
         //codigo mas limpio este pero dejare el anterior para entenderlo mejor
       }
       {
-          equipos.map((equipo) => <Equipo 
-              datos={equipo} 
-              key={equipo.titulo} 
-              colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)}
-              eliminarColaborador={eliminarColaborador}
-            />
-          )
-        }
+        equipos.map((equipo) => <Equipo
+          datos={equipo}
+          key={equipo.titulo}
+          colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)}
+          eliminarColaborador={eliminarColaborador}
+          actualizaColor={actualizaColor}
+        />
+        )
+      }
       <Footer></Footer>
     </div>
   );
