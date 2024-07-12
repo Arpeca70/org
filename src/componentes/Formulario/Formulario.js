@@ -13,11 +13,14 @@ const Formulario = (props) => {
     const [foto, setFoto] = useState("")
     const [equipo, setEquipo] = useState("")
 
-    const {registrarColaborador} = props
+    const [titulo, setTitulo] = useState("")
+    const [color, setColor] = useState("")
+
+    const { registrarColaborador, crearEquipo } = props
 
     const manejarEnvio = (event) => {
         event.preventDefault()
-       // console.log("Maneja el envio")
+        // console.log("Maneja el envio")
         let datosAEnviar = {
             nombre: nombre,
             puesto: puesto,
@@ -27,6 +30,16 @@ const Formulario = (props) => {
 
         registrarColaborador(datosAEnviar)
         //console.log(datosAEnviar)
+    }
+    //funcion para manejar la creacion un equipo nuevo en el formulario equipo
+    const manejarNuevoEquipo = (e) => {
+        //console.log(titulo,color)
+        //nueva version de javascript no se necesita escribir el objeto de esta 
+        //manera y se puede escribir como se dejo escrito 
+        //crearEquipo({titulo:titulo,color:color})
+        //crearEquipo({titulo,color})
+        //siempre que se llamen igual, elemento y variables.
+        crearEquipo({ titulo, colorPrimario: color })
     }
 
     return <section className="formulario">
@@ -57,8 +70,26 @@ const Formulario = (props) => {
                 valor={equipo}
                 actualizarValor={setEquipo}
                 equipos={props.equipos}
-           />
+            />
             <Boton>Crear</Boton>
+        </form>
+        <form onSubmit={manejarNuevoEquipo}>
+            <h2>Rellena el formulario para crear el equipo.</h2>
+            <CampoTexto
+                titulo="Titulo"
+                placeholder="Ingresar el titulo"
+                required
+                valor={titulo}
+                actualizarValor={setTitulo}
+            />
+            <CampoTexto
+                titulo="Color"
+                placeholder="Ingresar el color en Hex"
+                required
+                valor={color}
+                actualizarValor={setColor}
+            />
+            <Boton>Registrar Equipo</Boton>
         </form>
     </section>
 }
