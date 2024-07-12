@@ -4,7 +4,7 @@ import './App.css';
 import Header from './componentes/Header/Header';
 import Formulario from './componentes/Formulario/Formulario';
 import MiOrg from './componentes/MiOrg';
-import Equipo from './componentes/equipo';
+import Equipo from './componentes/Equipo';
 import Footer from './componentes/Footer';
 
 function App() {
@@ -106,7 +106,7 @@ function App() {
     //tambien puedes ponerlo asi y funconara de la misma manera
     //colaboradores.filter((colaborador) => { return colaborador.id != id })
     //colaboradores.filter((colaborador) => colaborador.id != id)
-    const nuevosColaboradores = colaboradores.filter((colaborador) => colaborador.id != id)
+    const nuevosColaboradores = colaboradores.filter((colaborador) => colaborador.id !== id)
     actualizarColaboradores(nuevosColaboradores)
   }
 

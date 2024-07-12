@@ -2,10 +2,10 @@ import { useState } from "react"
 import "./Formulario.css"
 //El import de CampoTexto solo se le pone la ruta sin el nombre del archivo 
 //porque su nombre es index.js y ese es el nombre por default.
-import CampoTexto from "../CampoTexto"
+import Campo from "../Campo"
 import ListaOpciones from "../ListaOpciones"
 import Boton from "../Boton"
-import { IoColorFilter } from "react-icons/io5"
+//import { IoColorFilter } from "react-icons/io5"
 
 const Formulario = (props) => {
 
@@ -47,21 +47,21 @@ const Formulario = (props) => {
     return <section className="formulario">
         <form onSubmit={manejarEnvio}>
             <h2>Rellena el formulario para crear el colaborador.</h2>
-            <CampoTexto
+            <Campo
                 titulo="Nombre"
                 placeholder="Ingresar Nombre"
                 required
                 valor={nombre}
                 actualizarValor={setNombre}
             />
-            <CampoTexto
+            <Campo
                 titulo="Puesto"
                 placeholder="Ingresar Puesto"
                 required
                 valor={puesto}
                 actualizarValor={setPuesto}
             />
-            <CampoTexto
+            <Campo
                 titulo="Foto"
                 placeholder="Ingresar Foto"
                 required
@@ -77,14 +77,14 @@ const Formulario = (props) => {
         </form>
         <form onSubmit={manejarNuevoEquipo}>
             <h2>Rellena el formulario para crear el equipo.</h2>
-            <CampoTexto
+            <Campo
                 titulo="Titulo"
                 placeholder="Ingresar el titulo"
                 required
                 valor={titulo}
                 actualizarValor={setTitulo}
             />
-            <CampoTexto
+            <Campo
                 titulo="Color"
                 placeholder="Ingresar el color en Hex"
                 required
