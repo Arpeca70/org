@@ -12,9 +12,10 @@ const Footer = () => {
             <a href='https://www.arpecasoft.com/'>
                 <img src="./img/instagram.png" alt="Instagram"/>
             </a>
-            <img src='./img/logo.png' alt='Org' />
-            <strong>Desarrollado por ArpecaSoft</strong>
         </div>
+        <img src='./img/logo.png' alt='Org' />
+        <strong>Desarrollado por ArpecaSoft</strong>
+        
 
     </footer>
 
