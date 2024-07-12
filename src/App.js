@@ -9,7 +9,7 @@ import Footer from './componentes/Footer';
 
 function App() {
 
-  const [mostrarFormulario, actualizarMostrar] = useState(false)
+  const [mostrarFormulario, actualizarMostrar] = useState(true)
   const [colaboradores, actualizarColaboradores] = useState([{
     id: uuidv4(),
     equipo: "Front End",
@@ -96,7 +96,8 @@ function App() {
 
   //Registrar Colaborador
   const registrarColaborador = (colaborador) => {
-    //spread operator, le agrega otro elemento al arreglo
+    //spread operatorcon los 3 puntos hace una copia del arreglo
+    //le agrega otro elemento al arreglo con la funcion colaborador 
     actualizarColaboradores([...colaboradores, colaborador])
   }
 
@@ -123,7 +124,9 @@ function App() {
 
   //Crear Equipo
   const crearEquipo = (nuevoEquipo) => {
-    console.log(nuevoEquipo)
+    //console.log(nuevoEquipo)
+    //spread operatorcon los 3 puntos hace una copia del arreglo
+    actualizarEquipos([...equipos,{...nuevoEquipo,id:uuidv4}])
   }
 
   return (

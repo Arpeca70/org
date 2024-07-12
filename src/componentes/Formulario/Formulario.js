@@ -5,6 +5,7 @@ import "./Formulario.css"
 import CampoTexto from "../CampoTexto"
 import ListaOpciones from "../ListaOpciones"
 import Boton from "../Boton"
+import { IoColorFilter } from "react-icons/io5"
 
 const Formulario = (props) => {
 
@@ -33,6 +34,7 @@ const Formulario = (props) => {
     }
     //funcion para manejar la creacion un equipo nuevo en el formulario equipo
     const manejarNuevoEquipo = (e) => {
+        e.preventDefault()
         //console.log(titulo,color)
         //nueva version de javascript no se necesita escribir el objeto de esta 
         //manera y se puede escribir como se dejo escrito 
@@ -88,6 +90,7 @@ const Formulario = (props) => {
                 required
                 valor={color}
                 actualizarValor={setColor}
+                type="color"
             />
             <Boton>Registrar Equipo</Boton>
         </form>
